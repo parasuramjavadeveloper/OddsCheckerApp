@@ -85,7 +85,7 @@ public class MatchPoller implements Runnable {
                     }
                 }
                 if (count < 1) {
-                    System.out.println("No Events found for this eventId");
+                    System.out.println("No Events found for this eventId\t" + eventId);
                 }
             }
         } catch (Exception e) {
