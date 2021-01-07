@@ -20,6 +20,7 @@ public class OddsCheckerApp {
             eventId = Long.parseLong(args[0]);
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Please Enter Event Id");
+            System.exit(0);
         }
         MatchPoller poller = new MatchPoller(eventId);
         ScheduledExecutorService schedular = Executors.newScheduledThreadPool(1);
