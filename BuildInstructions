@@ -1,0 +1,36 @@
+ Build Instructions 
+ 
+ 1) Import Maven Project and build the project ,the jar will be generated in the target folder .
+ 2) Run the Jar as java -jar OddsCheckerApp.jar 1007013117(eventId)
+ If the eventId is there from Polling API we should get the event name and its odds.
+ 3)  Scenarios to be tested and expected results should come as below
+ 
+ 
+    1) Run the Jar as java -jar OddsCheckerApp.jar 
+	
+	 Expected Output :- Please Enter Event Id
+                        Program  should terminate.
+	
+	2) Run the Jar as java -jar OddsCheckerApp.jar 1007013117(eventId)
+	
+	if eventId is not there from the polling API 
+	
+	Expected Output :- No Events found for this eventId	1007013117
+	 it keeps polling for every 10 seconds.
+	 
+	3) Run the Jar as java -jar OddsCheckerApp.jar 1007217851(eventId)
+
+    Expected Output :- it should display events along with odds 
+	
+	                 Event : Celikbilek, Altug - Zuk, Kacper
+                     [2021-01-07 17:09:31] | 1:  1.30 | 2:  3.35 | 
+                     [2021-01-07 17:09:40] | 1:  1.30 | 2:  3.35 | 
+                     [2021-01-07 17:09:50] | 1:  1.30 | 2:  3.35 | 
+    	
+    4)  Run the Jar as java -jar OddsCheckerApp.jar 1007217852(eventId)
+	
+	   Expected Output :- 
+	
+	                 Event : Duke Blue Devils - Boston College Eagles
+					 
+					 No Odds found for the event Duke Blue Devils - Boston College Eagles
