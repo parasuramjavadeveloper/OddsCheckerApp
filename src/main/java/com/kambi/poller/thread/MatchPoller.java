@@ -2,6 +2,7 @@ package com.kambi.poller.thread;
 
 import com.google.gson.Gson;
 import com.kambi.poller.models.*;
+import com.kambi.poller.utils.Constants;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -41,7 +42,7 @@ public class MatchPoller implements Runnable {
         StringBuffer stringBuffer = new StringBuffer();
         try {
             Request request = new Request.Builder()
-                    .url("https://eu-offering.kambicdn.org/offering/v2018/ubse/event/live/open.json").build();
+                    .url(Constants.apiUrl).build();
             Response response = client.newCall(request).execute();
             JSONObject json = new JSONObject(
                     response.body().string());
