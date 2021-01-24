@@ -6,7 +6,6 @@ import com.kambi.poller.utils.Constants;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -54,7 +53,7 @@ public class MatchPoller implements Runnable {
                     Event event = liveEvent.getEvent();
                     if (event != null && event.getId().equals(eventId)) {
                         count++;
-                        String eventName = event.getName();;
+                        String eventName = event.getName();
                         Optional<String> matchTag = event.getTags().stream().filter(tag -> tag.equalsIgnoreCase("MATCH")).findFirst();
                         if (matchTag.isPresent()) {
                             if (isEventName) {
@@ -62,14 +61,14 @@ public class MatchPoller implements Runnable {
                                 System.out.println("Event : " + eventName);
                             }
                             MainBetOffer mainBetOffer = liveEvent.getMainBetOffer();
-                            if (mainBetOffer != null &&  mainBetOffer.getOutcomes()!=null && mainBetOffer.getOutcomes().size() > 0) {
+                            if (mainBetOffer != null && mainBetOffer.getOutcomes() != null && mainBetOffer.getOutcomes().size() > 0) {
                                 List<Outcome> outcomes = mainBetOffer.getOutcomes();
                                 stringBuffer.append("[" + getTimeAndDate() + "] | ");
-                                   outcomes.forEach(outcome -> {
-                                        stringBuffer.append(outcome.getLabel() + ":  "
-                                                + highOrderDecimals(outcome.getOdds())
-                                                + " | ");
-                                    });
+                                outcomes.forEach(outcome -> {
+                                    stringBuffer.append(outcome.getLabel() + ":  "
+                                            + highOrderDecimals(outcome.getOdds())
+                                            + " | ");
+                                });
                                 System.out.println(stringBuffer.toString());
                             } else {
                                 System.out.println("No Odds found for this event \t" + eventName);
